@@ -14,16 +14,24 @@
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: space-between;
     border-bottom: var(--off-white) 0.1rem solid;
-    height: 10vmin;
+    height: 3.5rem;
+    width: calc(100% - 2rem);
     padding: 0rem 1rem 0rem 1rem;
+}
+
+.header_placeholder {
+    height: 3.5rem;
 }
 
 .logo_holder {
     width: max-content;
-    height: 10vmin;
+    height: 100%;
     align-self: center;
     display: flex;
     align-items: center;
@@ -47,4 +55,8 @@ header {
     top: 0;
     left: 0;
     z-index: 4;
+}
+
+.content {
+    min-height: calc(100vh - 3.5rem);
 }
