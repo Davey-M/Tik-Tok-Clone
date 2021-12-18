@@ -21,9 +21,3 @@ class Tag
         this.DOM = document.getElementsByClassName(this.class);
     }
 }
-
-const test = new Tag('test', 'click', () => {console.log('Hello From Test')});
-
-test.insert(document.body);
-
-test.DOM[0].insertAdjacentText('beforeend', 'Hello')
