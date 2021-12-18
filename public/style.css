@@ -9,8 +9,42 @@
 :root {
     --black: #333333;
     --white: white;
+    --off-white: #e7e7e7;
+    --light-grey: #b4b4b4;
 }
 
-.logo {
-    width: 10vmin;
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: var(--off-white) 0.1rem solid;
+    height: 10vmin;
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+.logo_holder {
+    width: max-content;
+    height: 10vmin;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.header_items {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.useless {
+    position: relative;
+}
+
+.useless:hover::before {
+    content: "This Button Does Nothing";
+    background-color: var(--light-grey);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
 }
