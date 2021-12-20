@@ -11,52 +11,96 @@
     --white: white;
     --off-white: #e7e7e7;
     --light-grey: #b4b4b4;
+    --red: #ff435b;
+    --blue: #00efff;
 }
 
 header {
+    width: 100%;
+    height: 3.5rem;
     position: fixed;
     top: 0;
     left: 0;
+    border-bottom: solid 0.1rem var(--off-white);
+    display: block;
+}
+
+#header_wrapper {
     display: flex;
     justify-content: space-between;
-    border-bottom: var(--off-white) 0.1rem solid;
-    height: 3.5rem;
-    width: calc(100% - 2rem);
+}
+
+main {
+    margin-top: 3rem;
+    min-height: calc(100vh - 3rem);
+    display: block;
+}
+
+.spacer {
+    max-width: 1150px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
     padding: 0rem 1rem 0rem 1rem;
 }
 
-.header_placeholder {
-    height: 3.5rem;
+.flex {
+    display: flex;
 }
 
-.logo_holder {
-    width: max-content;
+.center_inside {
+    justify-content: center;
+    align-items: center;
+}
+
+.full_height {
     height: 100%;
-    align-self: center;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
 }
 
-.header_items {
+.fit_width {
+    width: max-content;
+}
+
+#header_icons {
     display: flex;
+
     gap: 1rem;
+}
+
+.icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: red;
+}
+
+#search {
+    /* background-color: var(--off-white); */
+    background-color: transparent;
+    border: none;
+    border-right: 0.1rem solid var(--light-grey);
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    width: 15rem;
+}
+
+#search:focus-visible {
+    outline: none;
+    caret-color: var(--red);
+}
+
+#search_decorator {
+    background-color: var(--off-white);
+    padding: 0.3rem;
+    border-radius: 100rem;
+    display: flex;
     align-items: center;
 }
 
-.useless {
-    position: relative;
+#search_decorator:focus-within {
+    border: 0.1rem solid var(--light-grey);
 }
 
-.useless:hover::before {
-    content: "This Button Does Nothing";
-    background-color: var(--light-grey);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 4;
-}
-
-.content {
-    min-height: calc(100vh - 3.5rem);
+.search_icon {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }

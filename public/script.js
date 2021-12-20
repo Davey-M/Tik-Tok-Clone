@@ -21,3 +21,19 @@ class Tag
         this.DOM = document.getElementsByClassName(this.class);
     }
 }
+
+class Card
+{
+    constructor()
+    {
+        console.log(this);
+    }
+}
+
+class Account
+{
+    constructor()
+    {
+        console.log(this);
+    }
+}
