@@ -11,6 +11,7 @@
     --white: white;
     --off-white: #e7e7e7;
     --light-grey: #b4b4b4;
+    --grey: #808080;
     --red: #ff435b;
     --blue: #00efff;
 }
@@ -23,6 +24,7 @@ header {
     left: 0;
     border-bottom: solid 0.1rem var(--off-white);
     display: block;
+    background-color: white;
 }
 
 #header_wrapper {
@@ -71,7 +73,8 @@ main {
 .icon {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: red;
+    background-color: var(--red);
+    border-radius: 50%;
 }
 
 #search {
@@ -103,4 +106,103 @@ main {
 .search_icon {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+}
+
+.body_flex {
+    position: relative;
+}
+
+.left {
+    width: 356px;
+    height: calc(100vh - 3.5rem);
+    position: fixed;
+    top: 3.5rem;
+    overflow-y: scroll;
+}
+
+.right {
+    width: calc(100% - 356px);
+    margin-left: auto;
+}
+
+.link {
+    border-radius: 0.3rem;
+    padding: 0.7rem;
+    transition: all 0.2s;
+}
+
+.link:hover {
+    cursor: pointer;
+    background-color: var(--off-white);
+}
+
+.selected * {
+    color: var(--red);
+}
+
+.section {
+    margin: 0rem 0.5rem 0rem 0.5rem;
+    border-bottom: 0.1rem solid var(--off-white);
+    padding: 1rem 0rem 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+}
+
+.sec_label {
+    color: var(--grey);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.small_link {
+    color: var(--red);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.small_link:hover {
+    cursor: pointer;
+}
+
+.account_card {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    transition: all 0.2s;
+}
+
+.account_card:hover {
+    cursor: pointer;
+    background-color: var(--off-white);
+}
+
+.pic {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--blue);
+    border-radius: 50%;
+}
+
+.names {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.username {
+    font-size: 0.9rem;
+}
+
+.nickname {
+    font-size: 0.7rem;
+    color: var(--grey);
+}
+
+.gaps {
+    gap: 1rem;
 }
