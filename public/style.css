@@ -34,7 +34,7 @@ header {
 
 main {
     margin-top: 3.5rem;
-    min-height: calc(100vh - 3rem);
+    min-height: calc(100vh - 3.5rem);
     display: block;
 }
 
@@ -123,6 +123,7 @@ main {
 .right {
     width: calc(100% - 356px);
     margin-left: auto;
+    padding-top: 1rem;
 }
 
 .link {
@@ -179,14 +180,14 @@ main {
     background-color: var(--off-white);
 }
 
-.pic {
+.account_card .pic {
     width: 2.5rem;
     height: 2.5rem;
     background-color: var(--blue);
     border-radius: 50%;
 }
 
-.names {
+.account_card .names {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -194,15 +195,79 @@ main {
     gap: 0.5rem;
 }
 
-.username {
+.account_card .username {
     font-size: 0.9rem;
 }
 
-.nickname {
+.account_card .nickname {
     font-size: 0.7rem;
     color: var(--grey);
 }
 
 .gaps {
     gap: 1rem;
+}
+
+.card {
+    padding: 1rem 0rem 1rem 0rem;
+    border-bottom: 0.1rem solid var(--off-white);
+    max-width: 675px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 1rem;
+}
+
+.card * {
+    display: block;
+    position: relative;
+}
+
+.card .pic {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+
+.card .follow_button {
+    width: max-content;
+    margin-left: auto;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    color: var(--red);
+    border: 0.1rem solid var(--red);
+    border-radius: 0.3rem;
+}
+
+.card .reactions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card .circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--off-white);
+}
+
+.card .react_holder {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.card .reaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.card .react_holder b {
+    width: max-content;
+    font-size: 0.7rem;
 }
