@@ -25,6 +25,7 @@ header {
     border-bottom: solid 0.1rem var(--off-white);
     display: block;
     background-color: white;
+    z-index: 2;
 }
 
 #header_wrapper {
@@ -229,6 +230,8 @@ main {
     height: 3rem;
     background-color: var(--red);
     border-radius: 50%;
+    background-position: center center;
+    background-size: cover;
 }
 
 .card .follow_button {

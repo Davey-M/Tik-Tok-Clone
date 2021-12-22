@@ -1,6 +1,6 @@
 class Post
 {
-    constructor(username, user_nickname, content, tags, likes, shares, comments)
+    constructor(username, user_nickname, content, tags, likes, shares, comments, picture)
     {
         this.username = username;
         this.user_nickname = user_nickname;
@@ -9,6 +9,8 @@ class Post
         this.likes = likes ?? 0;
         this.shares = shares ?? 0;
         this.comments = comments ?? 0;
+
+        this.picture = picture ?? '';
 
         this.tagString = () => {
             let data = '';
@@ -21,7 +23,7 @@ class Post
 
         this.html = `
         <div class="card">
-            <div class="pic"></div>
+            <div class="pic" style="background-image: ${this.picture}"></div>
             <div class="post">
                 <div class="row">
                     <b>${this.username}</b>
@@ -75,7 +77,7 @@ for (let i = 0; i < 10; i++)
         let words = await fetch('https://random-word-api.herokuapp.com/word?number=4&swear=0');
         let data = await words.json();
         
-        let thisPost = new Post(data[0], data[1], data[2], [data[3]], Math.floor(Math.random() * 1000), Math.floor(Math.random() * 1000), Math.floor(Math.random() * 1000));
+        let thisPost = new Post(data[0], data[1], data[2], [data[3]], Math.floor(Math.random() * 1000), Math.floor(Math.random() * 1000), Math.floor(Math.random() * 1000), `url(https://picsum.photos/${Math.floor(Math.random() * 50) + 100})`);
         pushPost(thisPost);
     })()
 }
