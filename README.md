@@ -20,7 +20,7 @@ This app was created for a class at Prime Digital Academy.
 
 The objective was to create a clone of a popular social media platform. This was an excersize to learn html and css but javascript was allowed.
 
-I chose Tik Tok because it has a simple user interface and I thought I coule make something interesting within the 2 week time constraint.
+I chose Tik Tok because it has a simple user interface and I thought I could make something interesting within the 2 week time constraint.
 
 ## How does it work?
 
@@ -55,8 +55,8 @@ There are two ways to view the page on your machine:
 -   You can now open a browser window and put "localhost:3000" in the search bar.
 -   Now you have full access to an instance of the site running on your local machine.
 
-> ## About the author
+> ## Author
 >
-> ### David Meuer
+> #### David Meuer
 >
 > Check out my other projects here https://github.com/Davey-M.
