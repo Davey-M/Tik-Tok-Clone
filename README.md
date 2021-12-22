@@ -33,3 +33,10 @@ As you scroll the site will continue to call the API's and generate new content 
 Many of the buttons do nothing however, you can follow accounts with the red follow button on the post and then visit those posts later by clicking on account name on the left side.
 
 You can also like posts but keep in mind the like count is randomly generated so you make no impact what so ever.
+
+## Viewing the page
+
+There are two ways to view the page on your machine:
+
+1.  -   clone the github repositorie to your local machine
+        -   There is an explanation of how to do that here

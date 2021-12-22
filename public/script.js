@@ -64,15 +64,15 @@ class Post
                 <b class="follow_button" user="${this.id}" id="${this.id}" >Follow</b>
                 <div class="react_holder">
                     <div class="reaction" liked="false" onclick="changeCount(this)">
-                        <div class="circle" style="background-image: url(/heart.png);"></div>
+                        <div class="circle" style="background-image: url(heart.png);"></div>
                         <b>${this.likes}</b>
                     </div>
                     <div class="reaction" liked="false">
-                        <div class="circle" style="background-image: url(/comment.png);"></div>
+                        <div class="circle" style="background-image: url(comment.png);"></div>
                         <b>${this.comments}</b>
                     </div>
                     <div class="reaction" liked="false">
-                        <div class="circle" style="background-image: url(/share.png);"></div>
+                        <div class="circle" style="background-image: url(share.png);"></div>
                         <b>${this.shares}</b>
                     </div>    
                 </div>
