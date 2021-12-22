@@ -55,8 +55,6 @@ There are two ways to view the page on your machine:
 -   You can now open a browser window and put "localhost:3000" in the search bar.
 -   Now you have full access to an instance of the site running on your local machine.
 
-> ## Author
->
-> #### David Meuer
+> ### Created by David Meuer
 >
 > Check out my other projects here https://github.com/Davey-M.
