@@ -284,6 +284,12 @@ main {
 
 .card .hash {
     font-size: 0.8rem;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.card .tag:hover {
+    cursor: pointer;
 }
 
 .card .post {
