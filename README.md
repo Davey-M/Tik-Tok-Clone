@@ -24,7 +24,7 @@ I chose Tik Tok because it has a simple user interface and I thought I coule mak
 
 ## How does it work?
 
-This app is a psudo clone of tiktok.com. It is called TOk ToK and is a fake social media site to display single words.
+This app is a psudo clone of https://tiktok.com. It is called TOk ToK and is a fake social media site to display single words.
 
 Every peice of content you see on the page is generated with a random background color, a random profile, and random text, using the API's mentioned above.
 
