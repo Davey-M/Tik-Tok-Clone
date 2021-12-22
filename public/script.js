@@ -123,8 +123,6 @@ function setupFollowing(id)
             document.getElementById(fid).remove();
         }
     })
-
-    // console.log(follow_buttons);
 }
 
 
