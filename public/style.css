@@ -216,7 +216,7 @@ main {
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-columns: max-content 1fr max-content 1fr;
+    grid-template-columns: max-content 1fr 1fr;
     gap: 1rem;
 }
 
@@ -234,6 +234,13 @@ main {
     background-size: cover;
 }
 
+.card .reactions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .card .follow_button {
     width: max-content;
     margin-left: auto;
@@ -241,12 +248,8 @@ main {
     color: var(--red);
     border: 0.1rem solid var(--red);
     border-radius: 0.3rem;
-}
-
-.card .reactions {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    align-self: flex-end;
+    justify-self: flex-start;
 }
 
 .card .circle {

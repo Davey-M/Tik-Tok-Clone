@@ -41,6 +41,7 @@ class Post
                 </div>
             </div>
             <div class="reactions">
+                <b class="follow_button">Follow</b>
                 <div class="react_holder">
                     <div class="reaction">
                         <div class="circle"></div>
@@ -55,9 +56,6 @@ class Post
                         <b>${this.shares}</b>
                     </div>    
                 </div>
-            </div>
-            <div class="fourth">
-                <b class="follow_button">Follow</b>
             </div>
         </div>
         `
