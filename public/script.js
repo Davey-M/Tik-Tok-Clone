@@ -38,7 +38,7 @@ class Post
         }
 
         this.html = `
-        <div class="card">
+        <div class="card" id="card_${this.id}">
             <div class="pic" style="background-image: ${this.picture}"></div>
             <div class="post">
                 <div class="row">
@@ -63,16 +63,16 @@ class Post
             <div class="reactions">
                 <b class="follow_button" user="${this.id}" id="${this.id}" >Follow</b>
                 <div class="react_holder">
-                    <div class="reaction">
-                        <div class="circle"></div>
+                    <div class="reaction" liked="false" onclick="changeCount(this)">
+                        <div class="circle" style="background-image: url(/heart.png);"></div>
                         <b>${this.likes}</b>
                     </div>
-                    <div class="reaction">
-                        <div class="circle"></div>
+                    <div class="reaction" liked="false" onclick="changeCount(this)">
+                        <div class="circle" style="background-image: url(/comment.png);"></div>
                         <b>${this.comments}</b>
                     </div>
-                    <div class="reaction">
-                        <div class="circle"></div>
+                    <div class="reaction" liked="false" onclick="changeCount(this)">
+                        <div class="circle" style="background-image: url(/share.png);"></div>
                         <b>${this.shares}</b>
                     </div>    
                 </div>
@@ -93,7 +93,12 @@ class User
         users[this.id] = this;
 
         this.card = `                    
-        <div class="account_card" id="${this.id}">
+        <div class="account_card" id="${this.id}" onclick="
+            if (document.getElementById('card_${this.id}'))
+            {
+                window.scroll(0, (window.scrollY + document.getElementById('card_${this.id}').getBoundingClientRect().y) - 80);
+            }
+        ">
             <div class="pic" style="background-image: ${picture};"></div>
             <div class="names">
                 <p class="username">${this.username}</p>
@@ -123,6 +128,22 @@ function setupFollowing(id)
             document.getElementById(fid).remove();
         }
     })
+}
+
+function changeCount(e)
+{
+    if (e.getAttribute('liked') === 'false')
+    {
+        e.setAttribute('liked', 'true')
+        e.children[1].textContent = parseInt(e.children[1].textContent) + 1;
+        e.children[0].style.backgroundColor = 'var(--red)';
+    }
+    else
+    {
+        e.setAttribute('liked', 'false')
+        e.children[1].textContent = parseInt(e.children[1].textContent) - 1;
+        e.children[0].style.backgroundColor = 'var(--off-white)';
+    }
 }
 
 

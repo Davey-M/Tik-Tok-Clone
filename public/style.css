@@ -79,6 +79,10 @@ main {
     background-size: cover;
 }
 
+.icon:hover {
+    cursor: pointer;
+}
+
 #search {
     /* background-color: var(--off-white); */
     background-color: transparent;
@@ -292,6 +296,20 @@ main {
 .card .react_holder b {
     width: max-content;
     font-size: 0.7rem;
+}
+
+.card .reaction {
+    transition: all 0.2s;
+}
+
+.card .reaction:hover {
+    cursor: pointer;
+}
+
+.card .reaction .circle {
+    transition: all 0.2s;
+    background-position: center center;
+    background-size: cover;
 }
 
 .card .nickname {
