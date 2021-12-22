@@ -38,5 +38,4 @@ You can also like posts but keep in mind the like count is randomly generated so
 
 There are two ways to view the page on your machine:
 
-1.  -   clone the github repositorie to your local machine
-        -   There is an explanation of how to do that here
+# 1.
