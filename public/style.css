@@ -304,7 +304,7 @@ main {
     gap: 0.3rem;
 }
 
-.card .tag:hover {
+.tag:hover {
     cursor: pointer;
 }
 
@@ -327,4 +327,10 @@ main {
 
 .card .post_content * {
     color: var(--white);
+}
+
+.hash_holder {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
 }

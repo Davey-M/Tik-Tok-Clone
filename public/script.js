@@ -4,6 +4,9 @@ let follow_buttons;
 const content = document.getElementById('page_content');
 const following_accounts = document.getElementById('following_accounts');
 const suggested = document.getElementById('suggested');
+const discover_section = document.getElementById('discover_section');
+let cards;
+let cardHeight;
 
 class Post
 {
@@ -26,6 +29,10 @@ class Post
             for (let tag of this.tags)
             {
                 data += `<span class="tag" >#${tag}</span>`
+            }
+            if (discover_section.children.length < 15)
+            {
+                discover_section.insertAdjacentHTML('afterbegin', data);
             }
             return data;
         }
@@ -145,9 +152,12 @@ async function addCard()
     pushPost(thisPost);
 
     setupFollowing(thisPost.id);   
+
+    cards = document.getElementsByClassName('card');
+    cardHeight = cards[0].getBoundingClientRect().height;
 }
 
-for (let i = 0; i < 5; i++)
+for (let i = 0; i < 8; i++)
 {
     (async () => {
         let words = await fetch('https://random-word-api.herokuapp.com/word?number=4&swear=0');
@@ -164,7 +174,22 @@ for (let i = 0; i < 5; i++)
     })()
 }
 
+
+
 for (let i = 0; i < 5; i++)
 {
     addCard();
 }
+
+let mostScrolled = 0;
+
+window.addEventListener('scroll', () => {
+    let scroll = Math.floor(window.scrollY / cardHeight);
+    let cardAmount = document.getElementsByClassName('card').length;
+
+    if (scroll > mostScrolled && scroll > cardAmount - 8)
+    {
+        mostScrolled = scroll;
+        addCard()
+    }
+})
