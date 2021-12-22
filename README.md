@@ -47,7 +47,7 @@ There are two ways to view the page on your machine:
 
 ## 2.
 
--   Clone the github repository just like step 1
+-   Clone the github repository just like step 1.
 -   make sure you have node.js installed on your machine. If not you can find it here https://nodejs.org/en/.
 -   Navigate to the repository folder on your local machine with the terminal.
 -   Run the command "node ."
