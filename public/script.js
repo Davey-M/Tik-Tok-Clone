@@ -82,7 +82,7 @@ class User
         users[this.id] = this;
 
         this.card = `                    
-        <div class="account_card">
+        <div class="account_card" id="${this.id}">
             <div class="pic" style="background-image: ${picture};"></div>
             <div class="names">
                 <p class="username">${this.username}</p>
@@ -101,9 +101,16 @@ function setupFollowing(id)
         let fid = parseInt(follow_button.getAttribute('user'));
         let user = users[fid];
 
-        follow_button.innerText = 'Following';
+        follow_button.innerText = follow_button.innerText === 'Following' ? 'Follow' : 'Following';
 
-        following_accounts.insertAdjacentHTML('afterend', user.card);
+        if (follow_button.innerText === 'Following')
+        {
+            following_accounts.insertAdjacentHTML('afterend', user.card);
+        }
+        else
+        {
+            document.getElementById(fid).remove();
+        }
     })
 
     // console.log(follow_buttons);
