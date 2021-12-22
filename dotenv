@@ -1,3 +1,7 @@
 PORT=YOUR_DESIRED_PORT
 
-Put the port you would like you use above and delete this message to run the app without using port 3000.
+To change the port used for the app server
+
+1. Add your desired port above.
+2. Rename this file to .env.
+3. Delete these instructions.
