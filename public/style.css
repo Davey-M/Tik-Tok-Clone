@@ -267,7 +267,42 @@ main {
     gap: 0.3rem;
 }
 
+.card .row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.3rem;
+}
+
 .card .react_holder b {
     width: max-content;
     font-size: 0.7rem;
+}
+
+.card .nickname {
+    font-size: 0.8rem;
+}
+
+.card .hash {
+    font-size: 0.8rem;
+}
+
+.card .post {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card .post_content {
+    width: 100%;
+    min-height: 20rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(45deg, var(--blue) 0%, var(--red) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card .post_content * {
+    color: var(--white);
 }
