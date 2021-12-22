@@ -2,7 +2,7 @@
 
 > ### Disclaimer
 >
-> This app was created with the help of two very useful API's
+> This app was created with the help of two very useful API's:
 >
 > -   https://picsum.photos
 >
@@ -12,7 +12,7 @@
 >
 >     -   Created by RazorSh4rk
 >
-> Please check out both of these sites and give them the love they deserve
+> Please check out both of these sites and give them the love they deserve.
 
 ## Why create this?
 
@@ -38,4 +38,25 @@ You can also like posts but keep in mind the like count is randomly generated so
 
 There are two ways to view the page on your machine:
 
-# 1.
+## 1.
+
+-   Clone the github repository to your local machine.
+    -   there is a tutorial here if needed https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository.
+-   Open the index.html file inside the public folder.
+-   This way works just fine but you may miss out on features that require a database which is why there is a second method.
+
+## 2.
+
+-   Clone the github repository just like step 1
+-   make sure you have node.js installed on your machine. If not you can find it here https://nodejs.org/en/.
+-   Navigate to the repository folder on your local machine with the terminal.
+-   Run the command "node ."
+-   This will start a server on localhost:3000.
+-   You can now open a browser window and put "localhost:3000" in the search bar.
+-   Now you have full access to an instance of the site running on your local machine.
+
+> ## About the author
+>
+> ### David Meuer
+>
+> Check out my other projects here https://github.com/Davey-M.
