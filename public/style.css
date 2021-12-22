@@ -74,8 +74,9 @@ main {
 .icon {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: var(--red);
     border-radius: 50%;
+    background-position: center center;
+    background-size: cover;
 }
 
 #search {

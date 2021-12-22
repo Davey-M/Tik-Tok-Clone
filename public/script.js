@@ -42,7 +42,11 @@ class Post
                     <p class="hash">${this.tagString()}</p>
                 </div>
                 <div class="row">
-                    <div class="post_content">
+                    <div class="post_content" style="background: linear-gradient(
+                        ${Math.floor(Math.random() * 360)}deg,
+                        rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)}) 0%,
+                        rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)}) 100%
+                        );">
                         <p>
                             ${this.content}
                         </p>
