@@ -1,6 +1,7 @@
 # Tik-Tok-Clone
 
-> _Disclaimer_
+> ### Disclaimer
+>
 > This app was created with the help of two very useful API's
 >
 > -   https://picsum.photos
