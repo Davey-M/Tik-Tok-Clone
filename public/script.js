@@ -5,8 +5,13 @@ const content = document.getElementById('page_content');
 const following_accounts = document.getElementById('following_accounts');
 const suggested = document.getElementById('suggested');
 const discover_section = document.getElementById('discover_section');
+const nav_buttons = document.getElementById('nav_buttons').children;
+const searchBar = document.getElementById('search');
 let cards;
 let cardHeight;
+let followingView = false;
+
+let cardsList = {};
 
 class Post
 {
@@ -79,6 +84,8 @@ class Post
             </div>
         </div>
         `
+
+        cardsList[`card_${this.id}`] = this;
     }
 }
 
@@ -176,6 +183,74 @@ async function addCard()
     cardHeight = cards[0].getBoundingClientRect().height;
 }
 
+function showFollowing()
+{
+    for (let n of nav_buttons)
+    {
+        n.classList.remove('selected');
+    }
+    for (let i = 0; i < cards.length; i++)
+    {
+        let c = cards[i];
+
+        if (c.getElementsByClassName('follow_button')[0].innerText === 'Following')
+        {
+            c.style.display = '';
+        }
+        else
+        {
+            c.style.display = 'none';
+        }
+    }
+}
+
+function showForYou()
+{
+    for (let n of nav_buttons)
+    {
+        n.classList.remove('selected');
+    }
+    for (let i = 0; i < cards.length; i++)
+    {
+        let c = cards[i];
+
+        c.style.display = '';
+    }
+}
+
+function search(searcher)
+{
+    searcher.preventDefault();
+    searchString = searcher.target.value;
+    let filter = searchString.toUpperCase();
+    
+    for (let i = 0; i < cards.length; i++)
+    {
+        let c = cards[i];
+        let cc = cardsList[c.id];
+        if (filter === '')
+        {
+            c.style.display = '';
+        }
+        else if (
+            cc.username.toUpperCase().indexOf(filter) > -1 ||
+            cc.user_nickname.toUpperCase().indexOf(filter) > -1 ||
+            cc.content.toUpperCase().indexOf(filter) > -1
+        )
+        {
+            c.style.display = '';
+        }
+        else
+        {
+            c.style.display = 'none';
+        }
+    }
+}
+
+searchBar.addEventListener('input', search);
+
+
+// Set up envoirment right away
 for (let i = 0; i < 8; i++)
 {
     (async () => {
@@ -193,8 +268,6 @@ for (let i = 0; i < 8; i++)
     })()
 }
 
-
-
 for (let i = 0; i < 5; i++)
 {
     addCard();
@@ -203,12 +276,15 @@ for (let i = 0; i < 5; i++)
 let mostScrolled = 0;
 
 window.addEventListener('scroll', () => {
-    let scroll = Math.floor(window.scrollY / cardHeight);
-    let cardAmount = document.getElementsByClassName('card').length;
-
-    if (scroll > mostScrolled && scroll > cardAmount - 8)
+    if (followingView === false && searchBar.value === '')
     {
-        mostScrolled = scroll;
-        addCard()
+        let scroll = Math.floor(window.scrollY / cardHeight);
+        let cardAmount = document.getElementsByClassName('card').length;
+    
+        if (scroll > mostScrolled && scroll > cardAmount - 8)
+        {
+            mostScrolled = scroll;
+            addCard()
+        }
     }
 })

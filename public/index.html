@@ -54,15 +54,25 @@
 
             <div class="panel left">
 
-                <div class="section">
+                <div class="section" id="nav_buttons">
 
-                    <div class="link selected">
+                    <div class="link selected" onclick="
+                        showForYou();
+                        this.classList.add('selected');
+                        followingView = false;
+                        ">
                         <h3>For You</h3>
                     </div>
-                    <div class="link">
+                    <div class="link" onclick="
+                        showFollowing();
+                        this.classList.add('selected');
+                        followingView = true;
+                    ">
                         <h3>Following</h3>
                     </div>
-                    <div class="link">
+                    <div class="link" onclick="
+                        followingView = false;
+                    ">
                         <h3>Live</h3>
                     </div>
                 </div>
