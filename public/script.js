@@ -42,6 +42,15 @@ class Post
             return data;
         }
 
+        this.oneStringTags = () => {
+            let data = ''
+            for (let tag of this.tags)
+            {
+                data += `${tag} `;
+            }
+            return data;
+        }
+
         this.html = `
         <div class="card" id="card_${this.id}">
             <div class="pic" style="background-image: ${this.picture}"></div>
@@ -76,7 +85,10 @@ class Post
                         <div class="circle" style="background-image: url(comment.png);"></div>
                         <b>${this.comments}</b>
                     </div>
-                    <div class="reaction" liked="false">
+                    <div class="reaction" liked="false" id="share_${this.id}" onclick="
+                        this.children[1].textContent = parseInt(this.children[1].textContent) + 1;
+                        copyToClipboard(this);
+                    ">
                         <div class="circle" style="background-image: url(share.png);"></div>
                         <b>${this.shares}</b>
                     </div>    
@@ -86,6 +98,7 @@ class Post
         `
 
         cardsList[`card_${this.id}`] = this;
+        cardsList[`card_${this.id}`].tags = this.oneStringTags();
     }
 }
 
@@ -235,6 +248,7 @@ function search(searcher)
         else if (
             cc.username.toUpperCase().indexOf(filter) > -1 ||
             cc.user_nickname.toUpperCase().indexOf(filter) > -1 ||
+            cc.tags.toUpperCase().indexOf(filter) > -1 ||
             cc.content.toUpperCase().indexOf(filter) > -1
         )
         {
@@ -245,6 +259,15 @@ function search(searcher)
             c.style.display = 'none';
         }
     }
+}
+
+function copyToClipboard(element)
+{
+    let card_id = element.id.split('share_').join('card_');
+    let info = cardsList[card_id];
+    // navigator.clipboard.writeText(`${info.content}, posted by: ${info.username}`);
+    navigator.clipboard.writeText(`"${info.content}" - ${info.username}`);
+    document.getElementById('sharing_message').style.animation = 'fade 4s';
 }
 
 searchBar.addEventListener('input', search);
