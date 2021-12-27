@@ -50,7 +50,7 @@ There are two ways to view the page on your machine:
 -   Clone the github repository just like step 1.
 -   make sure you have node.js installed on your machine. If not you can find it here https://nodejs.org/en/.
 -   Navigate to the repository folder on your local machine with the terminal.
--   Run the command ```bash node .```
+-   Run the command ```node .```
 -   This will start a server on localhost:3000.
 -   You can now open a browser window and put "localhost:3000" in the search bar.
 -   Now you have full access to an instance of the site running on your local machine.
