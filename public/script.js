@@ -270,8 +270,67 @@ function copyToClipboard(element)
     document.getElementById('sharing_message').style.animation = 'fade 4s';
 }
 
-searchBar.addEventListener('input', search);
+async function storeFollowing()
+{
+    let database_key = JSON.parse(window.localStorage.getItem('toktok-db-account-key'))
 
+    if (!database_key)
+    {
+        database_key = await newDBKey();
+        console.log(database_key);
+    }
+
+    let following_data = {
+        key: database_key,
+        body: "test",
+    }
+
+    let options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(following_data),
+    }
+
+    let promise = await fetch('/storeFollowing', options);
+    let data = await promise.json();
+    console.log(data);
+}
+
+async function newDBKey()
+{
+    let key = '';
+
+    let promise1 = await fetch('/keys')
+    let data1 = await promise1.json();
+
+    console.log(data1);
+    // do {
+    //     key = '';
+
+    //     for (let i = 0; i < 10; i++)
+    //     {
+    //         key += Math.floor(Math.random() * 10).toString();
+    //     }
+    // } while (data1.keys.includes(key))
+
+    const options = {
+        method: "post",
+        header: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(key),
+    }
+
+    let promise = await fetch('/addKey', options)
+    let data = await promise.json();
+
+    return data
+}
+
+// End of functions
+searchBar.addEventListener('input', search);
 
 // Set up envoirment right away
 for (let i = 0; i < 8; i++)
