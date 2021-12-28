@@ -14,12 +14,14 @@ const port = process.env.PORT ?? 3000;
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
+// Stores the current users followers into followers.db
 app.post('/storeFollowing', (req, res) => {
     console.log(req.body);
 
     res.send(req.body);
 })
 
+// Inserts new user auth key into a database
 app.post('/addKey', (req, res) => {
 
     console.log(req.body)
