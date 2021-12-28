@@ -283,7 +283,7 @@ async function storeFollowing()
     let following_data = {
         key: database_key,
         body: {
-            test: 'This is double even newer dummy data',
+            test: 'This is dummy data',
         },
     }
 

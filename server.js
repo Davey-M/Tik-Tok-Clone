@@ -22,9 +22,12 @@ app.post('/storeFollowing', (req, res) => {
 
     user_db.findOne({ _id: key }, (err, doc) => {
         console.log('Docuemt:', doc);
+        if (err)
+        {
+            res.send(err);
+        }
         if (!doc)
         {
-            console.log('Creating Doc')
             user_db.insert({ _id: key, body: body })
             res.send({
                 200: 'Success',
@@ -33,7 +36,6 @@ app.post('/storeFollowing', (req, res) => {
         }
         else
         {
-            console.log('Updating Doc')
             user_db.update({ _id: key }, { $set: { body: body } } )
             res.send({
                 200: 'Success',
@@ -45,7 +47,10 @@ app.post('/storeFollowing', (req, res) => {
 
 app.get('/test_endpoint', (req, res) => {
     user_db.find({ _id: '7853255518' }, (err, doc) => { 
-        console.log(doc)
+        if (err)
+        {
+            res.send(err);
+        }
         res.send(doc);
     })
 })
@@ -55,14 +60,14 @@ app.post('/getFollowing', (req, res) => {
 
     // This is not a secure method of getting data usually there would be many layers of authentication before getting this data.
     let auth_key = req.body.key
-    
-    // let data = user_db.findOne({ _id: auth_key });
 
-    if (user_db.count({ _id: auth_key }) < 1)
-    {
-        res.send('No data available for ' + auth_key);
-    }
-    res.send(user_db.findOne({ _id: auth_key }));
+    user_db.findOne({ _id: auth_key }, (err, doc) => {
+        if (err)
+        {
+            res.send(err);
+        }
+        res.send(doc);
+    })
 })
 
 // Inserts new user auth key into a database
