@@ -282,7 +282,9 @@ async function storeFollowing()
 
     let following_data = {
         key: database_key,
-        body: "test",
+        body: {
+            test: 'This is double even newer dummy data',
+        },
     }
 
     let options = {
@@ -298,6 +300,33 @@ async function storeFollowing()
     console.log(data);
 }
 
+async function getFollowing()
+{
+    let database_key = JSON.parse(window.localStorage.getItem('toktok-db-account-key'));
+
+    if (!database_key)
+    {
+        database_key = await newDBKey();
+        window.localStorage.setItem('toktok-db-account-key', JSON.stringify(database_key));
+    }
+
+    let following_data = {
+        key: database_key,
+    }
+
+    let options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(following_data),
+    }
+
+    let promise = await fetch('/getFollowing', options);
+    let data = await promise.json();
+    console.log(data);
+}
+
 async function newDBKey()
 {
     let db_key;
@@ -308,7 +337,7 @@ async function newDBKey()
 
     for (let d of data1)
     {
-        keysArray.push(d.auth)
+        keysArray.push(d._id)
     }
 
     do {
