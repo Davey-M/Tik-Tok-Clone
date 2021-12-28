@@ -272,11 +272,12 @@ function copyToClipboard(element)
 
 async function storeFollowing()
 {
-    let database_key = JSON.parse(window.localStorage.getItem('toktok-db-account-key'))
+    let database_key = JSON.parse(window.localStorage.getItem('toktok-db-account-key'));
 
     if (!database_key)
     {
         database_key = await newDBKey();
+        window.localStorage.setItem('toktok-db-account-key', JSON.stringify(database_key));
         console.log(database_key);
     }
 
@@ -300,33 +301,48 @@ async function storeFollowing()
 
 async function newDBKey()
 {
-    let key = '';
+    let db_key;
 
     let promise1 = await fetch('/keys')
     let data1 = await promise1.json();
+    let keysArray = []
 
-    console.log(data1);
-    // do {
-    //     key = '';
+    for (let d of data1)
+    {
+        keysArray.push(d.auth)
+    }
 
-    //     for (let i = 0; i < 10; i++)
-    //     {
-    //         key += Math.floor(Math.random() * 10).toString();
-    //     }
-    // } while (data1.keys.includes(key))
+    do {
+        db_key = '';
+
+        for (let i = 0; i < 10; i++)
+        {
+            db_key += Math.floor(Math.random() * 10).toString();
+        }
+    } while (keysArray.includes(db_key))
+
+    let sendData = {
+        key: db_key
+    }
 
     const options = {
-        method: "post",
-        header: {
+        method: "POST",
+        headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(key),
+        body: JSON.stringify(sendData),
     }
 
     let promise = await fetch('/addKey', options)
     let data = await promise.json();
 
-    return data
+    return data.body.key;
+}
+
+// Only for development purposes
+function resetLS()
+{
+    window.localStorage.removeItem('toktok-db-account-key')
 }
 
 // End of functions
