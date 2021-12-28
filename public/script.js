@@ -278,7 +278,6 @@ async function storeFollowing()
     {
         database_key = await newDBKey();
         window.localStorage.setItem('toktok-db-account-key', JSON.stringify(database_key));
-        console.log(database_key);
     }
 
     let following_data = {

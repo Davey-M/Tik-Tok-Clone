@@ -21,6 +21,10 @@ app.post('/storeFollowing', (req, res) => {
     res.send(req.body);
 })
 
+app.post('/getFollowing', (req, res) => {
+    res.end();
+})
+
 // Inserts new user auth key into a database
 app.post('/addKey', (req, res) => {
 
