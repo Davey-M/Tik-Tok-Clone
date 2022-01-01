@@ -315,27 +315,30 @@ for (let i = 0; i < 8; i++)
     })()
 }
 
-let options = {
-    subtree: true, 
-    childList: true,
-}
-
-// const observer = new MutationObserver(() => {
-//     for (let i = 0; i < suggested.children.length; i++)
-//     {
-//         let child = suggested.children[i];
-//         if (!child.classList.contains('useless'))
-//         {
-//             child.classList.add('useless');
-//         }
+// Code below is broken but fixable in the future.
+// {
+//     let options = {
+//         subtree: true, 
+//         childList: true,
 //     }
-// })
 
-const observer = new MutationObserver(() => {
-    console.log('Observing change');
-})
+//     const observer = new MutationObserver(() => {
+//         for (let i = 0; i < suggested.children.length; i++)
+//         {
+//             let child = suggested.children[i];
+//             if (!child.classList.contains('useless'))
+//             {
+//                 child.classList.add('useless');
+//             }
+//         }
+//     })
 
-observer.observe(suggested, options );
+//     const observer = new MutationObserver(() => {
+//         console.log('Observing change');
+//     })
+
+//     observer.observe(suggested, options );
+// }
 
 for (let i = 0; i < 5; i++)
 {
