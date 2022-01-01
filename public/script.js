@@ -33,7 +33,7 @@ class Post
             let data = '';
             for (let tag of this.tags)
             {
-                data += `<span class="tag" >#${tag}</span>`
+                data += `<span class="tag useless" onclick="noFunctionMessage();">#${tag}</span>`
             }
             if (discover_section.children.length < 15)
             {
@@ -81,7 +81,7 @@ class Post
                         <div class="circle" style="background-image: url(heart.png);"></div>
                         <b>${this.likes}</b>
                     </div>
-                    <div class="reaction" liked="false">
+                    <div class="reaction useless" liked="false" onclick="noFunctionMessage();">
                         <div class="circle" style="background-image: url(comment.png);"></div>
                         <b>${this.comments}</b>
                     </div>
@@ -265,10 +265,34 @@ function copyToClipboard(element)
 {
     let card_id = element.id.split('share_').join('card_');
     let info = cardsList[card_id];
+    let message = document.getElementById('sharing_message');
     // navigator.clipboard.writeText(`${info.content}, posted by: ${info.username}`);
     navigator.clipboard.writeText(`"${info.content}" - ${info.username}`);
-    document.getElementById('sharing_message').style.animation = 'fade 4s';
+    message.style.animation = 'fade 4s';
+    setTimeout(() => {
+        message.style.animation = '';
+    }, 4000);
 }
+
+function noFunctionMessage()
+{
+    let nothing_elements = document.getElementsByClassName('useless');
+    let message = document.getElementById('no_func_message');
+
+    for (let i = 0; i < nothing_elements.length; i++)
+    {
+        let e = nothing_elements[i];
+
+        e.addEventListener('click', () => {
+            message.style.animation = 'fade 2s';
+            setTimeout(() => {
+                message.style.animation = '';
+            }, 2000);
+        })
+    }
+}
+
+noFunctionMessage();
 
 searchBar.addEventListener('input', search);
 
@@ -290,6 +314,28 @@ for (let i = 0; i < 8; i++)
         suggested.insertAdjacentHTML('afterend', thisUser.card);
     })()
 }
+
+let options = {
+    subtree: true, 
+    childList: true,
+}
+
+// const observer = new MutationObserver(() => {
+//     for (let i = 0; i < suggested.children.length; i++)
+//     {
+//         let child = suggested.children[i];
+//         if (!child.classList.contains('useless'))
+//         {
+//             child.classList.add('useless');
+//         }
+//     }
+// })
+
+const observer = new MutationObserver(() => {
+    console.log('Observing change');
+})
+
+observer.observe(suggested, options );
 
 for (let i = 0; i < 5; i++)
 {

@@ -393,3 +393,20 @@ main {
 #sharing_message * {
     color: var(--grey);
 }
+
+#no_func_message {
+    background-color: var(--off-white);
+    width: max-content;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border-radius: 300rem;
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0;
+}
+
+#no_func_message * {
+    color: var(--red);
+}
