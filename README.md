@@ -14,7 +14,9 @@
 >
 > Please check out both of these sites and give them the love they deserve.
 
-Check out the site here https://davey-m.github.io/Tik-Tok-Clone/
+## Check out the site here 
+
+https://davey-m.github.io/Tik-Tok-Clone/
 
 ## Why create this?
 
