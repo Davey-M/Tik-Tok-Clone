@@ -14,6 +14,8 @@
 >
 > Please check out both of these sites and give them the love they deserve.
 
+Check out the site here https://davey-m.github.io/Tik-Tok-Clone/
+
 ## Why create this?
 
 This app was created for a class at Prime Digital Academy.
