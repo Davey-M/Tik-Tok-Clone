@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TOk ToK</title>
+
+    <link rel="stylesheet" href="public/style.css">
+
+    <script defer src="public/script.js"></script>
+
+</head>
+<body>
+     
+    <header>
+
+        <div class="spacer">
+
+            <div id="header_wrapper" class="full_height">
+
+                <span class="flex center_inside full_height fit_width">
+                    <img src="public/TOk ToK Logo (refreshed).png" alt="TOk ToK" style="height: 1.5rem;">
+                </span>
+
+                <span class="flex center_inside full_height">
+                    <div id="search_decorator">
+                        <input type="text" name="search" id="search" placeholder="Search accounts and posts">
+                        <div class="flex full_height center_inside search_icon">
+                            <div class="icon" style="background-image: url(public/search_icon.png);"></div>
+                        </div>
+                    </div>
+                </span>
+
+                <span class="flex center_inside full_height fit_width">
+                    <div id="header_icons">
+                        <div class="icon useless" style="background-image: url(public/upload.png);"></div>
+                        <div class="icon useless" style="background-image: url(public/message.png);"></div>
+                        <div class="icon useless" style="background-image: url(public/inbox.png);"></div>
+                        <div class="icon useless" style="background-image: url(https://picsum.photos/200)"></div>    
+                    </div>
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="spacer body_flex">
+
+            <div class="panel left">
+
+                <div class="section" id="nav_buttons">
+
+                    <div class="link selected" onclick="
+                        showForYou();
+                        this.classList.add('selected');
+                        followingView = false;
+                        ">
+                        <h3>For You</h3>
+                    </div>
+                    <div class="link" onclick="
+                        showFollowing();
+                        this.classList.add('selected');
+                        followingView = true;
+                    ">
+                        <h3>Following</h3>
+                    </div>
+                    <div class="link useless" onclick="
+                        followingView = false;
+                    ">
+                        <h3>Live</h3>
+                    </div>
+                </div>
+
+                <div class="section">
+
+                    <p class="sec_label" id="suggested" >Suggested accounts</p>
+ 
+                    <b class="small_link useless">See all</b>
+
+                </div>
+
+                <div class="section">
+
+                    <p class="sec_label" id="following_accounts" >Following accounts</p>
+
+                    <b class="small_link useless">See more</b>
+
+                </div>
+
+                <div class="section">
+
+                    <p class="sec_label" >Discover</p>
+
+                    <div class="hash_holder" id="discover_section">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="panel right" id="page_content">
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="overlay">
+
+        <div id="sharing_message">
+            <p>Post copied to clipboard</p>
+        </div>
+
+        <div id="no_func_message">
+            <p>This button does nothing...</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
