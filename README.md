@@ -14,7 +14,7 @@
 >
 > Please check out both of these sites and give them the love they deserve.
 
-## Check out the site here 
+## Check out the site here
 
 https://davey-m.github.io/Tik-Tok-Clone/
 
@@ -63,8 +63,6 @@ There are two ways to view the page on your machine:
 >
 > Method #2 for running the program is not recommended as there is no database.
 > A database may be created in the future.
-
-
 
 ### Created by David Meuer
 
