@@ -1,7 +1,0 @@
-PORT=YOUR_DESIRED_PORT
-
-To change the port used for the app server
-
-1. Add your desired port above.
-2. Rename this file to .env.
-3. Delete these instructions.
